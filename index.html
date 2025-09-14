@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Co-Trader</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video autoplay muted loop class="video-bg">
+      <source
+        src="videos/flying-in-a-virtual-scenario-of-investment-charts.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support video.
+    </video>
+
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">Co-Trader</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="#">Docs</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+      <div class="hamburger">☰</div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Docs</a>
+        <a href="#">Login</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Trade With Discipline, Trade With Confidence</h1>
+      <p>
+        Co-Trader keeps you accountable - enforcing your rules, alerting you on
+        price targets, and locking trades when needed.
+      </p>
+      <div class="buttons">
+        <a href="#" class="btn-primary">Get Started</a>
+        <a href="#" class="btn-secondary">How It Works</a>
+      </div>
+
+      <!-- REASSURANCE CARDS -->
+      <div class="reassurance">
+        <div class="reassurance-item">
+          <i class="fas fa-bell"></i>
+          <h3>Alerts</h3>
+          <p>Never miss price levels again.</p>
+        </div>
+        <div class="reassurance-item">
+          <i class="fas fa-lock"></i>
+          <h3>Lock Trades</h3>
+          <p>Stop closing trades out of fear.</p>
+        </div>
+        <div class="reassurance-item">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Discipline</h3>
+          <p>Stay accountable to your strategy.</p>
+        </div>
+        <div class="reassurance-item">
+          <i class="fas fa-clock"></i>
+          <h3>Time Control</h3>
+          <p>Limit hours or cool off after losses.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+<!-- ===== Footer Section ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Left -->
+    <div class="footer-left">
+      <h2 class="logo">Co-Trader</h2>
+      <p class="tagline">Your Discipline, Reinforced.</p>
+    </div>
+
+    <!-- Center -->
+    <div class="footer-center">
+      <a href="#">Docs</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#" onclick="openModal('privacyModal')">Privacy Policy</a>
+      <a href="#" onclick="openModal('termsModal')">Terms of Service</a>
+    </div>
+
+    <!-- Right -->
+    <div class="footer-right">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Co-Trader. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== Privacy Modal ===== -->
+<div id="privacyModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+    <h2>Privacy Policy</h2>
+    <p>Your information is private and never shared. Co-Trader only uses secure connections (SSL) and does not store sensitive trading credentials.</p>
+  </div>
+</div>
+
+<!-- ===== Terms Modal ===== -->
+<div id="termsModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('termsModal')">&times;</span>
+    <h2>Terms of Service</h2>
+    <p>By using Co-Trader, you agree to follow your self-set trading rules. Co-Trader is a discipline-enforcement tool and does not execute trades on your behalf.</p>
+  </div>
+</div>
+
+
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
