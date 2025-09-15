@@ -198,6 +198,7 @@ nav ul li a:hover {
 
 /* Hero banner */
 .features-hero {
+  margin-top: 49px;
   text-align: center;
   padding: 60px 20px;
   background: linear-gradient(
