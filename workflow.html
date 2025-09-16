@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Co-Trader — How it works</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* base */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          Arial, sans-serif;
+        background: linear-gradient(180deg, var(--deep-navy), #071226 120%);
+        color: var(--white);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="page-head">
+        <h1>How Co-Trader Works</h1>
+        <p>
+          Co-Trader does three things: enforce your trading rules, alert you at
+          price targets, and lock trades when you choose. Below is a detailed,
+          step-by-step explanation of how each feature works and how Co-Trader
+          enforces discipline without taking control of your funds.
+        </p>
+      </header>
+
+      <!-- STEP 1: CONNECT -->
+      <section class="step reveal" id="step-connect">
+        <div class="step-body">
+          <div class="step-number mono">1</div>
+          <h3>Connect Your Account (secure API)</h3>
+          <p>
+            Use your broker/exchange API keys to link Co-Trader. We only ask for
+            the permissions needed — typically <strong>read</strong> access and
+            <strong>trade/close</strong> permissions (if you allow enforcement).
+            <em>No withdrawal permission required.</em>
+          </p>
+
+          <div class="detail-box">
+            <strong>How we keep it safe:</strong>
+            <ul style="margin: 8px 0 0 18px; color: var(--slate)">
+              <li>Keys are encrypted at rest.</li>
+              <li>Withdrawals are never enabled by default.</li>
+              <li>You can revoke access anytime from your broker dashboard.</li>
+            </ul>
+          </div>
+
+          <small class="muted"
+            >Supported: MT4/MT5 (via EA plugin) and exchanges with API keys
+            (e.g., Binance). For MT4/MT5, you'll install our lightweight EA
+            which communicates only with your account.</small
+          >
+        </div>
+
+        <div class="step-visual" aria-hidden="true">
+          <div style="text-align: center">
+            <div class="vis-icon"><i class="fas fa-plug"></i></div>
+            <div class="vis-illustration" style="margin-top: 12px">
+              Secure API Link
+            </div>
+            <div class="small-note">No credentials stored in plain text</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="connector" style="height: 10px; margin-bottom: 6px"></div>
+
+      <!-- STEP 2: DEFINE RULES -->
+      <section class="step even reveal" id="step-rules">
+        <div class="step-visual" aria-hidden="true">
+          <div style="text-align: center">
+            <div class="vis-icon"><i class="fas fa-sliders-h"></i></div>
+            <div class="vis-illustration" style="margin-top: 12px">
+              Rule Builder
+            </div>
+            <div class="small-note">Sliders, toggles & templates</div>
+          </div>
+        </div>
+
+        <div class="step-body">
+          <div class="step-number mono">2</div>
+          <h3>Define Your Rules</h3>
+          <p>
+            Build rules that reflect your trading plan — examples:
+            <strong>max daily loss</strong>, <strong>max trades/day</strong>,
+            <strong>max position size</strong>, or time-based restrictions.
+            Rules are stored on your account and evaluated continuously.
+          </p>
+
+          <div class="detail-box">
+            <strong>Examples:</strong>
+            <ul style="margin: 8px 0 0 18px; color: var(--slate)">
+              <li>"Close all positions if daily P&L ≤ -5%."</li>
+              <li>"No new trades after 9PM local time."</li>
+              <li>"Max 2 trades per day."</li>
+            </ul>
+          </div>
+
+          <small class="muted"
+            >You can use presets or create custom combinations. Rules can be
+            paused, edited, or scheduled.</small
+          >
+        </div>
+      </section>
+
+      <div class="connector" style="height: 10px; margin-bottom: 6px"></div>
+
+      <!-- STEP 3: MONITOR & ALERT -->
+      <section class="step reveal" id="step-monitor">
+        <div class="step-body">
+          <div class="step-number mono">3</div>
+          <h3>Monitor Markets & Price Alerts</h3>
+          <p>
+            Set price targets (e.g., EUR/USD 1.25353) or multi-condition alerts.
+            Co-Trader watches live prices and triggers notifications the moment
+            conditions are met — in-app, email, or push.
+          </p>
+
+          <div class="detail-box">
+            <strong>Alert types:</strong>
+            <ul style="margin: 8px 0 0 18px; color: var(--slate)">
+              <li>Simple price target</li>
+              <li>Crossing indicators (optional templates)</li>
+              <li>Account condition alerts (e.g., equity drop)</li>
+            </ul>
+          </div>
+
+          <small class="muted"
+            >Alerts are synchronous — we use websocket feeds or EA heartbeats
+            for near-instant detection. You receive the alert; you may also
+            instruct Co-Trader to act (if enforcement permission
+            granted).</small
+          >
+        </div>
+
+        <div class="step-visual" aria-hidden="true">
+          <div style="text-align: center">
+            <div class="vis-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="vis-illustration" style="margin-top: 12px">
+              Real-time Watch
+            </div>
+            <div class="small-note">Websocket / EA heartbeat monitoring</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="connector" style="height: 10px; margin-bottom: 6px"></div>
+
+      <!-- STEP 4: LOCK TRADES -->
+      <section class="step even reveal" id="step-lock">
+        <div class="step-visual" aria-hidden="true">
+          <div style="text-align: center">
+            <div class="vis-icon"><i class="fas fa-lock"></i></div>
+            <div class="vis-illustration" style="margin-top: 12px">
+              Lock Mode
+            </div>
+            <div class="small-note">No manual early exits</div>
+          </div>
+        </div>
+
+        <div class="step-body">
+          <div class="step-number mono">4</div>
+          <h3>Lock Trades (optional)</h3>
+          <p>
+            When you open a position you can choose to lock it. A locked trade
+            cannot be closed manually from the terminal — it will only exit at
+            the trade's SL or TP unless you perform an approved override (2FA or
+            time-release).
+          </p>
+
+          <div class="detail-box">
+            <strong>Override options:</strong>
+            <ul style="margin: 8px 0 0 18px; color: var(--slate)">
+              <li>PIN + 2FA double-confirmation</li>
+              <li>Timed unlock (e.g., unlock after X minutes)</li>
+              <li>Admin override (for prop accounts)</li>
+            </ul>
+          </div>
+
+          <small class="muted"
+            >Locking is done locally in the EA (MT4/MT5) or by preventing new
+            orders through the API — Co-Trader does not block
+            withdrawals.</small
+          >
+        </div>
+      </section>
+
+      <div class="connector" style="height: 10px; margin-bottom: 6px"></div>
+
+      <!-- STEP 5: ENFORCEMENT -->
+      <section class="step reveal" id="step-enforce">
+        <div class="step-body">
+          <div class="step-number mono">5</div>
+          <h3>Automated Enforcement</h3>
+          <p>
+            If rules are violated (e.g., your daily loss threshold is hit),
+            Co-Trader executes enforcement actions: close positions, block new
+            orders, or lock the account for a cooldown period. Actions and logs
+            are stored for audit.
+          </p>
+
+          <div class="detail-box">
+            <strong>Enforcement actions:</strong>
+            <ul style="margin: 8px 0 0 18px; color: var(--slate)">
+              <li>Close all open positions immediately</li>
+              <li>Block new orders until cooldown</li>
+              <li>Notify user with full action log</li>
+            </ul>
+          </div>
+
+          <small class="muted"
+            >All actions are timestamped and reversible only via explicit user
+            action (or admin review for prop setups).</small
+          >
+        </div>
+
+        <div class="step-visual" aria-hidden="true">
+          <div style="text-align: center">
+            <div class="vis-icon"><i class="fas fa-shield-virus"></i></div>
+            <div class="vis-illustration" style="margin-top: 12px">
+              Rule Enforcement
+            </div>
+            <div class="small-note">Logs & audit trail</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="connector" style="height: 10px; margin-bottom: 6px"></div>
+
+      <!-- STEP 6: OUTCOME -->
+      <section class="step reveal" id="step-outcome">
+        <div class="step-visual" aria-hidden="true">
+          <div style="text-align: center">
+            <div class="vis-icon"><i class="fas fa-user-check"></i></div>
+            <div class="vis-illustration" style="margin-top: 12px">
+              Stay Disciplined
+            </div>
+            <div class="small-note">Consistent performance</div>
+          </div>
+        </div>
+
+        <div class="step-body">
+          <div class="step-number mono">6</div>
+          <h3>Trade with Discipline</h3>
+          <p>
+            With rules enforced, real-time alerts, and optional trade locks,
+            Co-Trader keeps emotion out of trading — leading to consistent
+            adherence to your strategy and better long-term outcomes.
+          </p>
+
+          <div class="detail-box">
+            <strong>What you get:</strong>
+            <ul style="margin: 8px 0 0 18px; color: var(--slate)">
+              <li>Accountability to your own rules</li>
+              <li>Clear logs for every enforcement action</li>
+              <li>Peace of mind during volatile markets</li>
+            </ul>
+          </div>
+
+          <small class="muted"
+            >Co-Trader is a discipline assistant — you remain in control at all
+            times.</small
+          >
+        </div>
+      </section>
+
+      <!-- CTA strip -->
+      <div class="cta-strip reveal" style="margin-top: 28px">
+        <div class="txt">
+          <strong style="color: var(--white)"
+            >Ready to lock in your discipline?</strong
+          >
+          <small
+            >Connect an account, set rules, and let Co-Trader guard your trading
+            plan.</small
+          >
+        </div>
+        <a class="btn" href="/get-started.html">Get Started</a>
+      </div>
+    </div>
+
+    <script>
+      // scroll reveal for elements with .reveal
+      const revealItems = document.querySelectorAll(".reveal");
+
+      const reveal = () => {
+        const trigger = window.innerHeight * 0.85;
+        revealItems.forEach((el) => {
+          const top = el.getBoundingClientRect().top;
+          if (top < trigger) el.classList.add("show");
+        });
+      };
+
+      window.addEventListener("scroll", reveal);
+      window.addEventListener("load", reveal);
+      // quick accessible focus: allow keyboard users to see reveal
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Tab") reveal();
+      });
+    </script>
+  </body>
+</html>
