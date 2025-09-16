@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Co-Trader | Features</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <title>Co-Trader | Login</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -54,77 +50,57 @@
       </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="features-hero">
-      <h1>Features that keep you disciplined</h1>
-      <p>
-        Co-Trader enforces your own rules, alerts you when the market moves, and
-        locks trades so fear can’t break your plan.
-      </p>
-    </section>
+    <!-- Video background -->
+    <video autoplay muted loop class="bg-video">
+      <source src="videos/counting numbers.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
 
-    <!-- Features Grid -->
-    <section class="features-grid">
-      <article class="feature-card">
-        <div class="feature-icon"><i class="fas fa-gavel"></i></div>
-        <div class="feature-body">
-          <h4>Discipline Enforcer</h4>
-          <p>
-            Auto-close positions or block new trades when your personal rules
-            are hit — stay on plan, not on emotion.
-          </p>
+    <!-- Login form -->
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login to Co-Trader</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              required
+              minlength="6"
+              placeholder="Enter your password"
+            />
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <div class="form-group">
+            <!-- <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              required
+              minlength="6"
+              placeholder="Enter your password"
+            /> -->
+            <div class="forgot">
+              <a href="forgot-password.html">Forgot Password?</a>
+            </div>
+          </div>
+        </form>
+        <div class="redirect">
+          Don't have an account? <a href="register.html">Register here</a>
         </div>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon"><i class="fas fa-bell"></i></div>
-        <div class="feature-body">
-          <h4>Price Alerts</h4>
-          <p>
-            Set exact price targets and get notified instantly when the market
-            reaches them.
-          </p>
-        </div>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon"><i class="fas fa-lock"></i></div>
-        <div class="feature-body">
-          <h4>Trade Lock</h4>
-          <p>Prevent fear-driven exits by locking trades until TP/SL is hit.</p>
-        </div>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-        <div class="feature-body">
-          <h4>Secure Connections</h4>
-          <p>
-            Encrypted API key handling, no withdrawals allowed — you stay in
-            control.
-          </p>
-        </div>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
-        <div class="feature-body">
-          <h4>Smart Dashboard</h4>
-          <p>
-            Manage rules, monitor alerts, and review history in one simple
-            place.
-          </p>
-        </div>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
-        <div class="feature-body">
-          <h4>Integrations</h4>
-          <p>Built to connect with MT4, MT5, and Binance via secure APIs.</p>
-        </div>
-      </article>
-    </section>
-
-    <!-- CTA -->
-    <section class="features-cta">
-      <a href="#">Get Started</a>
-    </section>
+      </div>
+    </div>
 
     <!-- ===== Footer Section ===== -->
     <footer class="footer">
@@ -182,12 +158,6 @@
         </p>
       </div>
     </div>
-
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
 
     <script src="script.js"></script>
   </body>
