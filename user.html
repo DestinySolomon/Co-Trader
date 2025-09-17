@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Co-Trader — Dashboard</title>
+
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="user.css" />
+  </head>
+  <body>
+    <!-- Top nav -->
+    <header class="topnav" role="banner">
+      <div class="left">
+        <button class="menu-btn" id="topMenuBtn" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a class="logo" href="#">
+          <div class="mark">CT</div>
+          <div style="line-height: 1">Co-Trader</div>
+        </a>
+      </div>
+
+      <div class="right">
+        <button
+          class="icon-btn"
+          id="notifBtn"
+          title="Notifications"
+          aria-label="Notifications"
+        >
+          <i class="fas fa-bell"></i>
+        </button>
+
+        <button
+          class="icon-btn"
+          id="userBtn"
+          title="Account"
+          aria-label="Account"
+        >
+          <div class="user-avatar" id="avatar">U</div>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-hidden="false">
+      <div style="padding: 6px 12px">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 6px;
+          "
+        >
+          <div style="color: var(--cyan); font-weight: 700">Menu</div>
+          <button
+            id="collapseBtn"
+            title="Collapse"
+            style="
+              background: transparent;
+              border: none;
+              color: var(--slate);
+              cursor: pointer;
+            "
+          >
+            <i class="fas fa-angle-left"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav>
+        <a
+          class="nav-item active"
+          data-section="dashboard"
+          data-tooltip="Dashboard"
+          ><i class="fas fa-chart-line"></i><span>Dashboard</span></a
+        >
+        <a class="nav-item" data-section="rules" data-tooltip="My Rules"
+          ><i class="fas fa-shield-alt"></i><span>My Rules</span></a
+        >
+        <a class="nav-item" data-section="alerts" data-tooltip="Price Alerts"
+          ><i class="fas fa-bell"></i><span>Price Alerts</span></a
+        >
+        <a class="nav-item" data-section="locked" data-tooltip="Locked Trades"
+          ><i class="fas fa-lock"></i><span>Locked Trades</span></a
+        >
+        <a
+          class="nav-item"
+          data-section="reports"
+          data-tooltip="Reports & Analytics"
+          ><i class="fas fa-chart-pie"></i><span>Reports</span></a
+        >
+        <a class="nav-item" data-section="journal" data-tooltip="Trade Journal"
+          ><i class="fas fa-book"></i><span>Trade Journal</span></a
+        >
+        <a
+          class="nav-item"
+          data-section="discipline"
+          data-tooltip="Discipline Score"
+          ><i class="fas fa-trophy"></i><span>Discipline Score</span></a
+        >
+        <a
+          class="nav-item"
+          data-section="connections"
+          data-tooltip="Account Connections"
+          ><i class="fas fa-link"></i><span>Account Connections</span></a
+        >
+        <a class="nav-item" data-section="settings" data-tooltip="Settings"
+          ><i class="fas fa-cog"></i><span>Settings</span></a
+        >
+      </nav>
+    </aside>
+
+    <!-- overlay for mobile -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- App area -->
+    <main class="app" id="app">
+      <!-- Dashboard overview -->
+      <section id="dashboard" class="section active">
+        <h1>Dashboard Overview</h1>
+
+        <div class="stats">
+          <div class="card stat">
+            <div class="label">Rules Active</div>
+            <div class="value" id="statRules">0</div>
+            <div class="small-muted">Rules currently enforced</div>
+          </div>
+
+          <div class="card stat">
+            <div class="label">Alerts Set</div>
+            <div class="value" id="statAlerts">0</div>
+            <div class="small-muted">Active price alerts</div>
+          </div>
+
+          <div class="card stat">
+            <div class="label">Locked Trades</div>
+            <div class="value" id="statLocked">0</div>
+            <div class="small-muted">Trades currently locked</div>
+          </div>
+
+          <div class="card stat">
+            <div class="label">Discipline Score</div>
+            <div class="value" id="statScore">0%</div>
+            <div class="small-muted">How well you're sticking to rules</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top: 0">Recent Activity</h3>
+          <div id="activityList" class="small-muted">No activity yet.</div>
+        </div>
+      </section>
+
+      <!-- My Rules -->
+      <section id="rules" class="section">
+        <h1>My Rules</h1>
+
+        <div class="panel">
+          <div class="left card">
+            <form id="rulesForm" aria-label="Create trading rule">
+              <div class="form-row">
+                <div class="col">
+                  <label for="lossLimit">Daily Loss Limit (%)</label>
+                  <input
+                    id="lossLimit"
+                    class="input"
+                    type="number"
+                    min="0"
+                    placeholder="e.g. 5"
+                  />
+                </div>
+                <div class="col">
+                  <label for="cooldown">Cooldown Period</label>
+                  <select id="cooldown" class="input">
+                    <option value="">Select cooldown</option>
+                    <option value="1 Day">1 Day</option>
+                    <option value="1 Week">1 Week</option>
+                    <option value="1 Month">1 Month</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col">
+                  <label for="consecutiveLosses"
+                    >Consecutive Losses (No.)</label
+                  >
+                  <input
+                    id="consecutiveLosses"
+                    class="input"
+                    type="number"
+                    min="0"
+                    placeholder="e.g. 3"
+                  />
+                </div>
+                <div class="col">
+                  <label for="overtrading">Overtrading (trades/day)</label>
+                  <input
+                    id="overtrading"
+                    class="input"
+                    type="number"
+                    min="0"
+                    placeholder="e.g. 10"
+                  />
+                </div>
+              </div>
+
+              <div style="margin-top: 12px">
+                <label for="timeLimit">Time Limit (hours)</label>
+                <input
+                  id="timeLimit"
+                  class="input"
+                  type="number"
+                  min="0"
+                  placeholder="e.g. 4"
+                />
+              </div>
+
+              <div style="margin-top: 12px">
+                <label for="customRule">Other custom rule</label>
+                <input
+                  id="customRule"
+                  class="input"
+                  type="text"
+                  placeholder="e.g. Don't trade during news events"
+                />
+              </div>
+
+              <div
+                style="
+                  margin-top: 14px;
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+                "
+              >
+                <button type="submit" class="btn" id="saveBtn">
+                  Save Rule
+                </button>
+                <button
+                  type="button"
+                  id="resetForm"
+                  style="
+                    background: transparent;
+                    border: 1px solid rgba(255, 255, 255, 0.06);
+                    color: var(--white);
+                    padding: 10px 12px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                  "
+                >
+                  Reset
+                </button>
+                <div
+                  class="small-muted"
+                  id="formMsg"
+                  style="margin-left: 10px"
+                ></div>
+              </div>
+            </form>
+          </div>
+
+          <div class="right card">
+            <h3 style="margin-top: 0">Saved Rules</h3>
+            <div id="rulesList" class="rules-list">
+              <div class="empty">No rules saved yet.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Price Alerts (placeholder area but real structure) -->
+      <section id="alerts" class="section">
+        <h1>Price Alerts</h1>
+        <div class="card">
+          <p class="small-muted">
+            Price alerts UI will live here (create alerts, list, history).
+          </p>
+        </div>
+      </section>
+
+      <!-- Locked Trades -->
+      <section id="locked" class="section">
+        <h1>Locked Trades</h1>
+        <div class="card">
+          <p class="small-muted">
+            Locked trades will appear here once you connect an account.
+          </p>
+        </div>
+      </section>
+
+      <section id="reports" class="section">
+        <h1>Reports & Analytics</h1>
+        <div class="card small-muted">
+          Charts & export tools will be built here.
+        </div>
+      </section>
+      <section id="journal" class="section">
+        <h1>Trade Journal</h1>
+        <div class="card small-muted">Journal for logging trade reasons.</div>
+      </section>
+      <section id="discipline" class="section">
+        <h1>Discipline Score</h1>
+        <div class="card small-muted">
+          Gamified discipline metrics will appear here.
+        </div>
+      </section>
+
+      <!-- Account Connections -->
+      <section id="connections" class="section">
+        <h1>Account Connections</h1>
+        <div class="card">
+          <p class="small-muted">
+            Connect exchanges here (Binance, Bybit, etc.). For v1 you will paste
+            API keys.
+          </p>
+        </div>
+      </section>
+
+      <section id="settings" class="section">
+        <h1>Settings</h1>
+        <div class="card small-muted">
+          Profile, security and notification settings.
+        </div>
+      </section>
+    </main>
+
+
+    <script src="user.js"></script>
+  </body>
+</html>

@@ -139,3 +139,5 @@ getStartedBtns.forEach((btn) => {
 //     window.location.href = "register.html";
 //   }
 // });
+
+// USER DASHBOARD LOGIC
