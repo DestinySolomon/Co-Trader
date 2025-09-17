@@ -80,3 +80,62 @@ form2.addEventListener("submit", (e) => {
     window.location.href = "login.html";
   }
 });
+
+//Contact Page Logcic
+
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !subject || !message) {
+    alert("Please fill in all fields before submitting.");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  alert("✅ Message sent successfully! We’ll get back to you soon.");
+  contactForm.reset();
+});
+
+// Get Started Button Logic
+
+// Select all "Get Started" buttons
+const getStartedBtns = document.querySelectorAll(".getStartedBtn");
+
+getStartedBtns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Simulate login check (replace with real auth later)
+    const isLoggedIn = localStorage.getItem("userLoggedIn");
+
+    if (isLoggedIn) {
+      // If user is logged in, send to dashboard
+      window.location.href = "dashboard.html";
+    } else {
+      // If not logged in, send to registration
+      window.location.href = "register.html";
+    }
+  });
+});
+// document.getElementById("getStartedBtn").addEventListener("click", function () {
+//   // Simulate login check (replace with real auth later)
+//   const isLoggedIn = localStorage.getItem("userLoggedIn");
+
+//   if (isLoggedIn) {
+//     // If user is logged in, send to dashboard
+//     window.location.href = "dashboard.html";
+//   } else {
+//     // If not logged in, send to registration
+//     window.location.href = "register.html";
+//   }
+// });

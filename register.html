@@ -25,18 +25,26 @@
       href="https://fonts.googleapis.com/css2?family=Gugi&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-      }
-
-    </style>
   </head>
   <body>
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">Co-Trader</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="#">Docs</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+      <div class="hamburger">☰</div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="#">Docs</a>
+        <a href="login.html">Login</a>
+      </div>
+    </nav>
+
     <!-- Background Video -->
     <video autoplay muted loop class="bg3-video">
       <source
@@ -92,7 +100,7 @@
             <small id="errorMsg"></small>
           </div>
 
-          <div class="terms">
+          <div class="termz">
             <input type="checkbox" id="terms" required />
             <label for="terms"
               >I agree to the <a href="#">Terms & Conditions</a></label
@@ -105,6 +113,63 @@
         <div class="redirect">
           Already have an account? <a href="login.html">Login</a>
         </div>
+      </div>
+    </div>
+
+    <!-- ===== Footer Section ===== -->
+    <!-- <footer class="footer">
+      <div class="footer-container"> -->
+        <!-- Left -->
+        <!-- <div class="footer-left">
+          <h2 class="logo">Co-Trader</h2>
+          <p class="tagline">Your Discipline, Reinforced.</p>
+        </div> -->
+
+        <!-- Center -->
+        <!-- <div class="footer-center">
+          <a href="#">Docs</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="#" onclick="openModal('privacyModal')">Privacy Policy</a>
+          <a href="#" onclick="openModal('termsModal')">Terms of Service</a>
+        </div> -->
+
+        <!-- Right -->
+        <!-- <div class="footer-right">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div> -->
+
+      <!-- <div class="footer-bottom">
+        <p>&copy; 2025 Co-Trader. All rights reserved.</p>
+      </div>
+    </footer> -->
+
+    <!-- ===== Privacy Modal ===== -->
+    <div id="privacyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+        <h2>Privacy Policy</h2>
+        <p>
+          Your information is private and never shared. Co-Trader only uses
+          secure connections (SSL) and does not store sensitive trading
+          credentials.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== Terms Modal ===== -->
+    <div id="termsModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('termsModal')">&times;</span>
+        <h2>Terms of Service</h2>
+        <p>
+          By using Co-Trader, you agree to follow your self-set trading rules.
+          Co-Trader is a discipline-enforcement tool and does not execute trades
+          on your behalf.
+        </p>
       </div>
     </div>
 

@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Co-Trader</title>
-    <!-- Font Awesome -->
+    <title>Contact Us - CoTrader</title>
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,15 +31,6 @@
     />
   </head>
   <body>
-    <!-- Background Video -->
-    <video autoplay muted loop class="video-bg">
-      <source
-        src="videos/flying-in-a-virtual-scenario-of-investment-charts.mp4"
-        type="video/mp4"
-      />
-      Your browser does not support video.
-    </video>
-
     <!-- NAVBAR -->
     <nav>
       <div class="logo">Co-Trader</div>
@@ -59,42 +49,56 @@
       </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Trade With Discipline, Trade With Confidence</h1>
-      <p>
-        Co-Trader keeps you accountable - enforcing your rules, alerting you on
-        price targets, and locking trades when needed.
-      </p>
-      <div class="buttons">
-        <a href="javascript:void(0)" class="getStartedBtn btn-primary">Get Started</a>
-        <a href="workflow.html" class="btn-secondary">How It Works</a>
-      </div>
+    <!-- Contact Section -->
 
-      <!-- REASSURANCE CARDS -->
-      <div class="reassurance">
-        <div class="reassurance-item">
-          <i class="fas fa-bell"></i>
-          <h3>Alerts</h3>
-          <p>Never miss price levels again.</p>
+    <div class="contact-container">
+      <h1>Get in Touch</h1>
+      <p>Questions, feedback, or support? We're just a message away.</p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
         </div>
-        <div class="reassurance-item">
-          <i class="fas fa-lock"></i>
-          <h3>Lock Trades</h3>
-          <p>Stop closing trades out of fear.</p>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
         </div>
-        <div class="reassurance-item">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Discipline</h3>
-          <p>Stay accountable to your strategy.</p>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            placeholder="Enter subject"
+            required
+          />
         </div>
-        <div class="reassurance-item">
-          <i class="fas fa-clock"></i>
-          <h3>Time Control</h3>
-          <p>Limit hours or cool off after losses.</p>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea
+            id="message"
+            rows="5"
+            placeholder="Write your message here..."
+            required
+          ></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="info">
+        <p>Email: support@cotrader.com | Phone: +234 800 123 4567</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">Telegram</a>
+          <a href="#">LinkedIn</a>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- ===== Footer Section ===== -->
     <footer class="footer">
@@ -152,12 +156,6 @@
         </p>
       </div>
     </div>
-
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
 
     <script src="script.js"></script>
   </body>
