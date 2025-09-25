@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <div class="container py-5" id="checkoutSection">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow border-0">
+            <div class="card-body">
+              <h3 class="card-title text-center mb-4">Checkout</h3>
+
+              <!-- Plan Details -->
+              <div class="mb-3">
+                <h5>
+                  Plan: <span id="planName" class="fw-bold text-primary"></span>
+                </h5>
+                <h5>
+                  Price: $<span
+                    id="planPrice"
+                    class="fw-bold text-success"
+                  ></span>
+                </h5>
+              </div>
+
+              <!-- User Info -->
+              <form id="paymentForm">
+                <div class="mb-3">
+                  <label class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Payment Method</label>
+                  <select class="form-select" required>
+                    <option value="">-- Select Payment Method --</option>
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="crypto">Crypto</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">
+                  Pay Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Redirecting Section -->
+    <div class="container py-5 d-none" id="redirectSection">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <div class="card shadow border-0 p-4">
+            <div class="mb-3">
+              <div class="spinner-border text-success" role="status"></div>
+            </div>
+            <h4>Redirecting to Payment Gateway…</h4>
+            <p class="text-muted">
+              Please wait while we connect you to the secure payment portal.
+            </p>
+            <a href="user.html" class="btn btn-outline-primary mt-3">
+              Back to Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get query params from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const plan = urlParams.get("plan");
+      const price = urlParams.get("price");
+
+      // Show plan and price on page
+      document.getElementById("planName").innerText = plan || "N/A";
+      document.getElementById("planPrice").innerText = price || "0.00";
+
+      // Handle form submission
+      document
+        .getElementById("paymentForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Hide checkout section
+          document.getElementById("checkoutSection").classList.add("d-none");
+
+          // Show redirect section
+          document.getElementById("redirectSection").classList.remove("d-none");
+
+          // Simulate delay before redirect (for placeholder demo)
+          setTimeout(() => {
+            console.log("Redirecting to actual payment gateway...");
+            // here you can integrate with real gateway later
+          }, 3000);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

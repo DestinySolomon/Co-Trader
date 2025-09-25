@@ -25,24 +25,65 @@
         </a>
       </div>
 
+      <!-- Subscribe button -->
+      <button
+        id="subscribeBtn"
+        class="btn btn-primary"
+        onclick="window.location.href='subscription.html'"
+      >
+        Subscribe
+      </button>
+
       <div class="right">
+        <!-- Notifications  -->
         <button
           class="icon-btn"
           id="notifBtn"
           title="Notifications"
           aria-label="Notifications"
+          style="position: relative"
         >
           <i class="fas fa-bell"></i>
+          <span
+            id="notifCount"
+            class="notif-badge"
+            style="
+              position: absolute;
+              bottom: 22px;
+
+              right: 2px;
+              font-size: 12px;
+              background: red;
+              color: white;
+              border-radius: 50%;
+              padding: 2px 6px;
+              min-width: 18px;
+              text-align: center;
+            "
+            >2</span
+          >
         </button>
 
-        <button
-          class="icon-btn"
-          id="userBtn"
-          title="Account"
-          aria-label="Account"
-        >
-          <div class="user-avatar" id="avatar">U</div>
-        </button>
+        <!-- User Profile -->
+        <div class="user-profile" id="userMenuToggle">
+          <img
+            id="userAvatar"
+            src="default-avatar.png"
+            alt="User Avatar"
+            class="avatar"
+          />
+          <span id="subBadge" class="sub-badge">Pro</span>
+
+          <!-- Dropdown -->
+          <div class="dropdown" id="userDropdown">
+            <p id="userName">John Doe</p>
+            <p id="userEmail">john@example.com</p>
+            <hr />
+            <a href="#">My Account</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -330,7 +371,6 @@
         </div>
       </section>
     </main>
-
 
     <script src="user.js"></script>
   </body>

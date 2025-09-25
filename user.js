@@ -26,6 +26,60 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Subscription Button
+// const subBtn = document.getElementById("subBtn");
+// subBtn.addEventListener("click", () => {
+//   alert("Subscription coming soon 🚀");
+// });
+
+// Mock user data
+const user = {
+  name: "John Doe",
+  email: "john@example.com",
+  avatar: "profile-pic.jpg", // Replace with uploaded picture
+  subscription: "pro", // basic | pro | premium | expired
+  notifications: 3,
+};
+
+// Fill user data
+document.getElementById("userName").textContent = user.name;
+document.getElementById("userEmail").textContent = user.email;
+document.getElementById("userAvatar").src = user.avatar || "default-avatar.png";
+
+// Subscription badge
+const subBadge = document.getElementById("subBadge");
+if (user.subscription && user.subscription !== "expired") {
+  subBadge.textContent =
+    user.subscription.charAt(0).toUpperCase() + user.subscription.slice(1);
+  subBadge.classList.add(user.subscription);
+} else {
+  subBadge.style.display = "none";
+}
+
+// Notifications
+const notifBadge = document.getElementById("notifCount");
+if (user.notifications === 0) notifBadge.style.display = "none";
+else notifBadge.textContent = user.notifications;
+
+// Dropdown toggle
+const userMenuToggle = document.getElementById("userMenuToggle");
+const userDropdown = document.getElementById("userDropdown");
+
+userMenuToggle.addEventListener("click", () => {
+  userDropdown.style.display =
+    userDropdown.style.display === "block" ? "none" : "block";
+});
+
+// Close dropdown on outside click
+document.addEventListener("click", (e) => {
+  if (!userMenuToggle.contains(e.target)) {
+    userDropdown.style.display = "none";
+  }
+});
+
+//===================================
+
 const sidebar = document.getElementById("sidebar");
 const topMenuBtn = document.getElementById("topMenuBtn");
 const collapseBtn = document.getElementById("collapseBtn");

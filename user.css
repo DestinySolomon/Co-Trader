@@ -107,6 +107,24 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.sub-btn {
+  background: linear-gradient(90deg, gold, orange);
+  color: var(--navy);
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.sub-btn:hover {
+  filter: brightness(1.1);
+}
+/* 
 .user-avatar {
   width: 40px;
   height: 40px;
@@ -116,7 +134,86 @@ body {
   place-items: center;
   color: var(--navy);
   font-weight: 700;
+} */
+/* =============================== */
+/* Notification badge */
+.notif-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
 }
+
+.user-profile {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  object-fit: cover;
+}
+
+.sub-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+}
+.basic {
+  background: green;
+}
+.pro {
+  background: blue;
+}
+.premium {
+  background: purple;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  width: 200px;
+  z-index: 100;
+  padding: 10px;
+}
+.dropdown p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+.dropdown hr {
+  margin: 8px 0;
+}
+.dropdown a {
+  display: block;
+  text-decoration: none;
+  color: #555;
+  padding: 6px 0;
+  font-size: 14px;
+}
+.dropdown a:hover {
+  color: #000;
+}
+
+/* ========================= */
 
 /* Layout */
 .sidebar {
