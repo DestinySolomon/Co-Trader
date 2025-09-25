@@ -166,18 +166,21 @@
       <section id="dashboard" class="section active">
         <h1>Dashboard Overview</h1>
 
+        <!-- My Rules -->
         <div class="stats">
           <div class="card stat">
             <div class="label">Rules Active</div>
             <div class="value" id="statRules">0</div>
             <div class="small-muted">Rules currently enforced</div>
           </div>
-
+          <!-- Price Alerts -->
           <div class="card stat">
             <div class="label">Alerts Set</div>
             <div class="value" id="statAlerts">0</div>
             <div class="small-muted">Active price alerts</div>
           </div>
+
+          <!-- ======= -->
 
           <div class="card stat">
             <div class="label">Locked Trades</div>
@@ -319,10 +322,99 @@
       <!-- Price Alerts (placeholder area but real structure) -->
       <section id="alerts" class="section">
         <h1>Price Alerts</h1>
+        <!-- Create/Edit Alert Form -->
         <div class="card">
-          <p class="small-muted">
-            Price alerts UI will live here (create alerts, list, history).
-          </p>
+          <form id="alertForm" class="alert-form" autocomplete="off">
+            <input type="hidden" id="editAlertId" value="" />
+            <div class="form-row">
+              <div class="col">
+                <label for="asset">Asset (pair)</label>
+                <select id="asset" class="input" required>
+                  <option value="">Select pair</option>
+                  <optgroup label="Crypto">
+                    <option value="BTC/USD">BTC/USD</option>
+                    <option value="ETH/USD">ETH/USD</option>
+                    <option value="ETH/BTC">ETH/BTC</option>
+                    <option value="BNB/USD">BNB/USD</option>
+                    <option value="SOL/USD">SOL/USD</option>
+                    <option value="XRP/USD">XRP/USD</option>
+                    <option value="ADA/USD">ADA/USD</option>
+                    <option value="DOGE/USD">DOGE/USD</option>
+                    <option value="USDT/USD">USDT/USD</option>
+                  </optgroup>
+                  <optgroup label="Forex">
+                    <option value="EUR/USD">EUR/USD</option>
+                    <option value="GBP/USD">GBP/USD</option>
+                    <option value="USD/JPY">USD/JPY</option>
+                    <option value="USD/CHF">USD/CHF</option>
+                    <option value="USD/CAD">USD/CAD</option>
+                    <option value="AUD/USD">AUD/USD</option>
+                    <option value="NZD/USD">NZD/USD</option>
+                    <option value="GBP/JPY">GBP/JPY</option>
+                    <option value="EUR/GBP">EUR/GBP</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="col">
+                <label for="type">Type</label>
+                <select id="type" class="input">
+                  <option value="auto">Auto (detect)</option>
+                  <option value="crypto">Crypto</option>
+                  <option value="forex">Forex</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="condition">Condition</label>
+                <select id="condition" class="input" required>
+                  <option value="above">Above (≥)</option>
+                  <option value="below">Below (≤)</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="targetPrice">Target Price</label>
+                <input
+                  id="targetPrice"
+                  class="input"
+                  type="number"
+                  step="0.0001"
+                  placeholder="e.g. 50000"
+                  required
+                />
+              </div>
+            </div>
+            <div
+              style="
+                margin-top: 12px;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+              "
+            >
+              <button type="submit" class="btn">Save Alert</button>
+              <button type="button" id="resetAlert" class="btn btn-ghost">
+                Reset
+              </button>
+              <div
+                id="alertFormMsg"
+                class="small-muted"
+                style="margin-left: 10px"
+              ></div>
+            </div>
+          </form>
+        </div>
+        <!-- Active Alerts -->
+        <div class="card">
+          <h3>Active Alerts</h3>
+          <div id="alertsList" class="alerts-list small-muted">
+            No active alerts yet.
+          </div>
+        </div>
+        <!-- Alerts History -->
+        <div class="card">
+          <h3>Alert History</h3>
+          <div id="alertsHistory" class="alerts-history small-muted">
+            No triggered alerts yet.
+          </div>
         </div>
       </section>
 

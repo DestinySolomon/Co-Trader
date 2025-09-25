@@ -424,6 +424,48 @@ label {
   margin-left: 6px;
 }
 
+
+
+/* Price Alerts */
+/* Price Alerts styles */
+.alert-form .hint { font-size: 12px; color: var(--slate); margin-top:6px; }
+.alerts-list .alert-row,
+.alerts-history .history-row {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.alerts-list .alert-row:last-child,
+.alerts-history .history-row:last-child { border-bottom:none; }
+
+.alert-meta { color: var(--slate); font-size:14px; }
+.alert-actions button { background:transparent; border:none; color:var(--cyan); cursor:pointer; padding:6px; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--white);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* tiny toast */
+.ct-toast {
+  position: fixed;
+  right: 20px;
+  top: 90px;
+  z-index: 1400;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  color: var(--deep-navy);
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(3,10,26,0.6);
+  font-weight:700;
+}
+
 /* small screens - mobile drawer */
 .overlay {
   display: none;
